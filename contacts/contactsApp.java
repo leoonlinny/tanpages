@@ -34,7 +34,12 @@ public class contactsApp {
         }
         for(String contact: contactsList){
             System.out.println(contact);
+
+
         }
+
+
+
     }
 
 }
