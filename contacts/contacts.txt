@@ -1,2 +1,0 @@
-List<String> dataText = new ArrayList<>();
-dataText.add("");
