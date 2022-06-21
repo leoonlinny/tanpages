@@ -57,7 +57,7 @@ public class Contacts {   private      String name;
             }
 
             List<String> dataText = new ArrayList<>();
-            dataText.add("Athena");
+            dataText.add("Athena","210-567-3678");
             dataText.add("Medusa");
             dataText.add("Hades");
             dataText.add("Aphrodite");
