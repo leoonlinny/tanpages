@@ -8,11 +8,10 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 
 public class ContactsApp {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 //        Scanner scanner = new Scanner(System.in);
 //
 //        String userChoice = scanner.nextLine();
@@ -21,14 +20,38 @@ public class ContactsApp {
 
         List<String> contactsList = new ArrayList<>();
 
+        contactsList.add("nooooooo");
 
+        public static void getAllContactsFromNumber(String( number, Contacts[]contactsList){
+            for (String contact : contactsList) {
+//                for (Contacts contacts: contactsList){
+                if (number.equals(contact.getNumber())) {
+                    System.out.printf("%s -- %s%n", contact.getName(), contact.getNumber());
+                }
+            }
+        }
+//        leos code: public static void getAllMoviesFromCategory(String number;number, contacts[] contactsManager){
+//            for (ContactsApp contacts: movies){
+//                if (number.equals(contactsManager.getNumber())){
+//                    System.out.printf("%s -- %s%n", contactsList.toArray(new String[0]));
+//                }
+//            }
+//        }
+        public static Contacts[] addContact (Contacts newContact, Contacts[]contactsList){
+            Contacts[] newContactsArray = new Contacts[contactsList.length + 1];
+            for (int i = 0; i < contactsList.length; i++) {
+                newContactArray[i] = contactsList[i];
+            }
+            newContactArray[newContactArray.length - 1] = newContact;
+            return newContactArray;
+        }
 //        try {
 //            contactsList = Files.readAllLines(contacts);
 //        } catch (IOException e) {
 //            throw new RuntimeException(e);
 //        }
         Input input = new Input();
-        Contacts[] contact = contactsList.findAll();
+        List<String> contacts = Files.readAllLines(Paths.get("contacts.txt"));
         int userChoice = -1;
         while (userChoice != 0) {
             System.out.println("");
@@ -45,8 +68,8 @@ public class ContactsApp {
                 case 0:
                     break;
                 case 1:
-                    for (contacts contacts : contacts) {
-                        System.out.printf("%s -- %s%n", contacts.getName(), contacts.getNumber());
+                    for (Path contacts : contacts) {
+                        System.out.printf("%s -- %s%n", contact.getName(),contact.getNumber());
                     }
                     break;
 //                case 2:
@@ -77,23 +100,9 @@ public class ContactsApp {
 //
 
 
-        public static void getAllContactsFromNumber(String number, Contacts[]contactsList){
-            for (String contact : contactsList) {
-//                for (Contacts contacts: contactsList){
-                if (number.equals(contact.getNumber())) {
-                    System.out.printf("%s -- %s%n", contact.getName(), contact.getNumber());
-                }
-            }
-        }
+
 //
-//        public static Contacts[] addContact (Contacts newContact, Contacts[]contactsList){
-//            Contacts[] newContactsArray = new Contacts[contactsList.length + 1];
-//            for (int i = 0; i < contactsList.length; i++) {
-//                newContactArray[i] = contactsList[i];
-//            }
-//            newContactArray[newContactArray.length - 1] = newContact;
-//            return newContactArray;
-//        }
+
 
 //
     } // end main method
