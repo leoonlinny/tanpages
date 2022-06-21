@@ -17,17 +17,12 @@ public class contactsApp {
             // Check for contacts.txt and create if it does not exist
             Path dataFile = Paths.get(filename);
             if (!Files.exists(dataFile)) {
-                System.out.println("Your new file has been created ");
                 Files.createFile(dataFile);
             }
         } catch (IOException iox) {
             iox.printStackTrace();
-        }
-//        Path contacts = Paths.get("data", "contacts.txt");
-//
-//        List<String> contactsList = new ArrayList<>();
 
-//        contactsList.add("nooooooo");
+        }
 
 
 //        leos code: public static void getAllMoviesFromCategory(String number;number, contacts[] contactsManager){
@@ -73,16 +68,12 @@ public class contactsApp {
                 break;
             }
             switch (userChoice) {
-//                case "1":
-////                    getAllContacts();
-////                    break;
-//                case "2":
-//                    input.userChoice();
-//                    String nameOfContactToAdd = input.getString("Enter the name of the contact you want to add: ");
-//                    String numberOfContactToAdd = input.getString("Enter the number of the contact you want to add:");
-//                    Contacts newContact = new Contacts(nameOfContactToAdd, numberOfContactToAdd);
-//                    contacts = addContact(newContact, contacts);
-//                    break;
+                case "1":
+                    getContacts();
+                    break;
+                case "2":
+                    addContacts();
+
 //                case "3":
 //                    getAllContactsFromName("Name", contacts);
 //                    break;
@@ -99,22 +90,45 @@ public class contactsApp {
         }
     }
 
-    // number 1
-//    private static void getAllContacts() {
-//        List<String> contactList = Files.readAllLines(Paths.get("contacts.txt"));
-//    }
+    public static void getContacts() {
+        System.out.println("Name   |  (Phone number)");
+        System.out.println("------------------------");
+        try {
+            List<String> contactList = Files.readAllLines(Paths.get("contacts.txt"));
+            for (String contact : contactList) {
+                System.out.println(contact);
+            }
+        } catch (IOException iox) {
+            iox.printStackTrace();
+        }
+    }public static void addContacts() {
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            Path of = Path.of("contacts.txt");
+            List<String> contactList = Files.readAllLines(of);
+            System.out.println("Enter the name of the contact you want to add") ;
+            String nameOfContactToAdd = scanner.nextLine();
+            System.out.println("Enter the number of the contact you want to add:");
+            String numberOfContactToAdd = scanner.nextLine();
+            contactList.add(nameOfContactToAdd +"  |  "+ numberOfContactToAdd );
+            Files.write(of, contactList);
+            for (String contact : contactList) {
+                System.out.println(contact);
+            }
+        } catch (IOException iox) {
+            iox.printStackTrace();
+        }
+    }
 
 
     // number 4.
     private static void getAllContactsFromNumber() {
         try{
-            List<String> contact = Files.readAllLines(Paths.get("contacts.txt"));
-            for (String contacts : contact) {
+            List<String> contactList = Files.readAllLines(Paths.get("contacts.txt"));
+            for (String contact : contactList) {
                 System.out.println(contact);
-//                for (Contacts contacts: contactsList){
-//                if (number.equals(contact.getNumber())) {
-////                    System.out.printf("%s -- %s%n", contactsList.getName(), contactsList.getNumber());
-//                }
+//
             }
         }catch (IOException iox) {
             iox.printStackTrace();
